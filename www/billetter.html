@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!-- This site was created in Webflow. http://www.webflow.com-->
+<!-- Last Published: Fri Mar 21 2014 18:29:55 GMT+0000 (UTC) -->
+<html data-wf-site="532339cab69573570c00024c">
+<head>
+  <meta charset="utf-8">
+  <title>Teaterfestival - Billetter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="css/webflow.css">
+  <link rel="stylesheet" type="text/css" href="css/scenoskop.webflow.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ["Oswald:300,400,700","Montserrat:400,700"]
+      }
+    });
+  </script>
+  <script type="text/javascript" src="js/modernizr.js"></script>
+  <link rel="shortcut icon" type="image/x-icon" href="https://y7v4p6k4.ssl.hwcdn.net/placeholder/favicon.ico">
+  <script type="text/javascript" href="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body class="body-baggrund">
+  <div class="w-container">
+    <div class="w-nav" data-collapse="medium" data-animation="default" data-duration="400"></div>
+  </div>
+  <div class="logo-baggrund">
+    <img class="logo" src="images/Scenoskop-logo-br300px.png" alt="52f9203d129e615e140000d2_Scenoskop-logo-br300px.png">
+  </div>
+  <div class="bund">
+    <h3>BILLETTER</h3>
+  </div>
+  <div class="w-container navigation-bar">
+    <div class="w-nav" data-collapse="small" data-animation="default" data-duration="400" data-contain="1">
+      <div class="w-container navigation-bar navbarstreg navbaringenstreg">
+        <a class="w-clearfix w-inline-block luk" href="index.html">
+          <img class="luk" src="images/glyphicons_207_remove_2.png" alt="Luk">
+        </a>
+        <a class="w-nav-brand" href="index.html">
+          <img class="tilbagepil" src="images/glyphicons_020_home.png" alt="532819bb51afcf551e00056d_glyphicons_020_home.png">
+        </a>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="w-container">
+      <div class="billettertekst">Alle forestillinger på Scenoskop Teaterfestival er gratis.
+        <br>
+        <br>Men hvis du vil være sikker på at få en plads, kan du hente en billet via ticketeasy. Det kræver selvfølgelig, at du kan komme på nettet med din mobil telefon.
+        <br>
+        <br>Udover her på siden findes der også en billet knap ved hver forestilling i menuenpunktet FORESTILLINGER. Via knappen kommer du til hele Scenoskops billetbestilling.</div><a class="button billetknap billetmenu" href="http://test.ticketeasy.dk/"
+      target="_blank">Billetter</a>
+    </div>
+    <div class="billettertekst">Du kan også gå direkte til den enkelte forestilling for at bestille, ved at klikke på linket&nbsp;<span class="billet">Billet</span>&nbsp;udfor hver enkelt forestilling.&nbsp;</div>
+  </div>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script type="text/javascript" src="js/webflow.js"></script>
+  <script>
+    $(document).ready(function() {
+        $('.beskrivelse').hide();
+    	$('.vis-mere').bind("touchstart", function(){
+    	    //alert("1");
+    		var no = this.id.slice(-1);
+    	    var bt_text = ($('#beskrivelse'+no).css('display') == "none") ? "Luk" : "Vis mere...";
+    		$('#beskrivelse'+no).slideToggle("fast");
+    	    $(this).html(bt_text);
+    	});
+    });
+  </script>
+</body>
+</html>
