@@ -359,7 +359,7 @@ Me From Estonia</span>
 		/**
 		 * Fired when an item is being touched.
 		 */
-		$('.touch_link').bind("touchstart", function(){
+		$('.touch_link').on("touchstart MSPointerDown", function(){
 		  if(isTouching) return false;
 		  $(this).data("moved", false);
 		
@@ -373,7 +373,7 @@ Me From Estonia</span>
 		 * Fired when the user moves his/her finger.
 		 * If we detect a move, we're not interested in the "tap" anymore
 		 */
-		$('.touch_link').bind("touchmove", function(){
+		$('.touch_link').on("touchmove  MSPointerMove", function(){
 		  	$(this).data("moved", true);
 		  	return false;
 		});
@@ -384,7 +384,7 @@ Me From Estonia</span>
 		 * If e.currentTarget.moved is true, then the user moved his/her finger while
 		 * touching this item so we "cancel" the tap.
 		 */
-		$('.touch_link').bind("touchend", function(){
+		$('.touch_link').on("touchend  MSPointerUp", function(){
 		  	isTouching = false;
 		  	
 		  	if(!$(this).data("moved")) {

@@ -157,13 +157,13 @@
 			$(this).data("link", $(this).attr("href"));
 			$(this).attr("href", "");
 		});
-		
+
 		$('.menuknap').trigger("morph");
 		
 		/**
 		 * Fired when an item is being touched.
 		 */
-		$('.menuknap').bind("touchstart", function(){
+		$('.menuknap').on("touchstart MSPointerDown", function(){
 		  if(isTouching) return false;
 		  $(this).data("moved", false);
 		
@@ -177,7 +177,7 @@
 		 * Fired when the user moves his/her finger.
 		 * If we detect a move, we're not interested in the "tap" anymore
 		 */
-		$('.menuknap').bind("touchmove", function(){
+		$('.menuknap').on("touchmove MSPointerMove", function(){
 		  	$(this).data("moved", true);
 		  	return false;
 		});
@@ -188,7 +188,7 @@
 		 * If e.currentTarget.moved is true, then the user moved his/her finger while
 		 * touching this item so we "cancel" the tap.
 		 */
-		$('.menuknap').bind("touchend", function(){
+		$('.menuknap').on("touchend MSPointerUp", function(){
 		  	isTouching = false;
 		  	
 		  	if(!$(this).data("moved")) {

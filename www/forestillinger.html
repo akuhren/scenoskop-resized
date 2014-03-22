@@ -70,7 +70,7 @@
 <video width="100%" height="240" controls>
 <source src="http://www.dats.dk/opensource/videos/RENT.mp4" type="video/mp4" />
 Your browser does not support the video tag.
-</video>      
+</video>
       <div class="w-container">
         <h4 class="forestilling-titel">RENT</h4>
       </div>
@@ -886,7 +886,7 @@ Your browser does not support the video tag.
 			/**
 			 * Fired when an item is being touched.
 			 */
-			$('.vis-mere').bind("touchstart", function(){
+			$('.vis-mere').on("touchstart MSPointerDown", function(){
 			  if(isTouching) return false;
 			  $(this).data("moved", false);
 			
@@ -900,7 +900,7 @@ Your browser does not support the video tag.
 			 * Fired when the user moves his/her finger.
 			 * If we detect a move, we're not interested in the "tap" anymore
 			 */
-			$('.vis-mere').bind("touchmove", function(){
+			$('.vis-mere').bind("touchmove MSPointerMove", function(){
 			  	$(this).data("moved", true);
 			  	return false;
 			});
@@ -911,7 +911,7 @@ Your browser does not support the video tag.
 			 * If e.currentTarget.moved is true, then the user moved his/her finger while
 			 * touching this item so we "cancel" the tap.
 			 */
-			$('.vis-mere').bind("touchend", function(){
+			$('.vis-mere').bind("touchend MSPointerUp", function(){
 			  	isTouching = false;
 			  	
 			  	if(!$(this).data("moved")) {
