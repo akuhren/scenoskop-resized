@@ -155,7 +155,7 @@
 		
 		$('.menuknap').on('morph', function() {
 			$(this).data("link", $(this).attr("href"));
-			$(this).attr("href", "");
+			$(this).attr("href", "javascript:preventDefault()");
 		});
 
 		$('.menuknap').trigger("morph");

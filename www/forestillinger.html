@@ -29,10 +29,10 @@
   <div class="w-container">
     <div class="w-nav" data-collapse="medium" data-animation="default" data-duration="400" data-contain="1">
       <div class="w-container navigation-bar">
-        <a class="w-clearfix w-inline-block luk" href="index.html">
+        <a class="w-clearfix w-inline-block luk nav_link" href="index.html">
           <img class="luk" src="images/glyphicons_207_remove_2.png" alt="Luk">
         </a>
-        <a class="w-nav-brand" href="index.html">
+        <a class="w-nav-brand nav_link" href="index.html">
           <img class="tilbagepil" src="images/glyphicons_020_home.png">
         </a>
       </div>
@@ -83,8 +83,8 @@ Your browser does not support the video tag.
         <br>Medvirkende: Castet bag RENT</div>
     </div>
   </div>
-  <div class="forestilling2 margin">
-    <div class="w-container forestilling-overskrift overskrift-streg" id="overskrift2">
+  <div class="forestilling02 margin">
+    <div class="w-container forestilling-overskrift overskrift-streg" id="overskrift02">
       <h6>Den lille seddel fra skuffen</h6>
     </div>
     <div class="w-clearfix">
@@ -876,6 +876,14 @@ Your browser does not support the video tag.
 		$(document).ready(function() {
 			
 		
+			$('.nav_link').on('morph', function() {
+				$(this).data("link", $(this).attr("href"));
+				$(this).attr("href", "javascript:preventDefault()");
+			});
+			
+			$('.nav_link').trigger("morph");
+		
+		
 			$('.vis-mere').on('morph', function() {
 				$(this).attr("href", "javascript:preventDefault()");
 				$(this).data("number", this.id.slice(-2));
@@ -900,7 +908,7 @@ Your browser does not support the video tag.
 			 * Fired when the user moves his/her finger.
 			 * If we detect a move, we're not interested in the "tap" anymore
 			 */
-			$('.vis-mere').bind("touchmove MSPointerMove", function(){
+			$('.vis-mere').on("touchmove MSPointerMove", function(){
 			  	$(this).data("moved", true);
 			  	return false;
 			});
@@ -911,11 +919,10 @@ Your browser does not support the video tag.
 			 * If e.currentTarget.moved is true, then the user moved his/her finger while
 			 * touching this item so we "cancel" the tap.
 			 */
-			$('.vis-mere').bind("touchend MSPointerUp", function(){
+			$('.vis-mere').on("touchend MSPointerUp", function(){
 			  	isTouching = false;
 			  	
 			  	if(!$(this).data("moved")) {
-			  	  	$(this).html("Tapped "+$(this).data("number"));
 			  		var no = $(this).data("number");
 					if($("#beskrivelse"+no).css("display") == "none"){
 						$("#beskrivelse"+no).css("display", "block");
@@ -939,6 +946,46 @@ Your browser does not support the video tag.
 				$(this).attr("href","");
 				window.open(url, "_system");
 				return false;
+			});
+			
+			/**
+			 * Fired when an item is being touched.
+			 */
+			$('.nav_link').on("touchstart MSPointerDown", function(){
+			  if(isTouching) return false;
+			  $(this).data("moved", false);
+		
+			  isTouching = true;
+		  
+			  return false;
+			});
+		
+		
+			/**
+			 * Fired when the user moves his/her finger.
+			 * If we detect a move, we're not interested in the "tap" anymore
+			 */
+			$('.nav_link').on("touchmove MSPointerMove", function(){
+			  	$(this).data("moved", true);
+			  	return false;
+			});
+		
+		
+			/**
+			 * Fired when the touch has ended.
+			 * If e.currentTarget.moved is true, then the user moved his/her finger while
+			 * touching this item so we "cancel" the tap.
+			 */
+			$('.nav_link').on("touchend MSPointerUp", function(){
+			  	isTouching = false;
+		  	
+			  	if(!$(this).data("moved")) {
+					window.open($(this).data("link"), "_self");
+				}
+		  	
+			  	delete $(this).data("moved"); //Don't need our flag anymore
+		  	
+			  	return false;
 			});
 			
 		

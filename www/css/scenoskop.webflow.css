@@ -240,7 +240,7 @@ p {
     line-height: 10px;
   }
   .button.momentum-knap:active {
-    background-color: #a3ccd6;
+/*    background-color: #a3ccd6;*/
   }
   .button.billet-knap {
     width: 300px;
@@ -263,7 +263,7 @@ p {
     color: black;
   }
   .button.mere-knap:active {
-    background-color: #a3ccd6;
+/*    background-color: #a3ccd6;*/
   }
   .button.uteater-knap {
     color: #f24a07;
@@ -754,7 +754,7 @@ p {
     text-align: center;
   }
   .button.momentum-knap:active {
-    background-color: #a3ccd6;
+/*    background-color: #a3ccd6;*/
   }
   .button.billet-knap {
     width: 236px;
@@ -772,7 +772,7 @@ p {
     color: black;
   }
   .button.mere-knap:active {
-    background-color: #a3ccd6;
+/*    background-color: #a3ccd6;*/
   }
   .button.uteater-knap {
     border-color: #ff7300;
@@ -780,7 +780,7 @@ p {
     color: black;
   }
   .button.uteater-knap:active {
-    background-color: #a3ccd6;
+/*    background-color: #a3ccd6;*/
   }
   .button.uteater-knap.teater95b {
     border-color: #c8ff00;
@@ -1179,7 +1179,7 @@ p {
     color: #c20202;
   }
   .menu-open:active {
-    color: black;
+/*    color: black;*/
   }
   .menu-open:focus {
     color: black;

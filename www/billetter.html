@@ -34,10 +34,10 @@
   <div class="w-container navigation-bar">
     <div class="w-nav" data-collapse="small" data-animation="default" data-duration="400" data-contain="1">
       <div class="w-container navigation-bar navbarstreg navbaringenstreg">
-        <a class="w-clearfix w-inline-block luk" href="index.html">
+        <a class="w-clearfix w-inline-block luk touch_link" href="index.html">
           <img class="luk" src="images/glyphicons_207_remove_2.png" alt="Luk">
         </a>
-        <a class="w-nav-brand" href="index.html">
+        <a class="w-nav-brand touch_link" href="index.html">
           <img class="tilbagepil" src="images/glyphicons_020_home.png" alt="532819bb51afcf551e00056d_glyphicons_020_home.png">
         </a>
       </div>
@@ -57,16 +57,57 @@
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <script type="text/javascript" src="js/webflow.js"></script>
   <script>
-    $(document).ready(function() {
-        $('.beskrivelse').hide();
-    	$('.vis-mere').bind("touchstart", function(){
-    	    //alert("1");
-    		var no = this.id.slice(-1);
-    	    var bt_text = ($('#beskrivelse'+no).css('display') == "none") ? "Luk" : "Vis mere...";
-    		$('#beskrivelse'+no).slideToggle("fast");
-    	    $(this).html(bt_text);
-    	});
-    });
+	var isTouching;
+	
+	$(document).ready(function() {
+	
+		$('.touch_link').on('morph', function() {
+			$(this).data("link", $(this).attr("href"));
+			$(this).attr("href", "javascript:preventDefault()");
+		});
+		
+		$('.touch_link').trigger("morph");
+		
+		/**
+		 * Fired when an item is being touched.
+		 */
+		$('.touch_link').on("touchstart MSPointerDown", function(){
+		  if(isTouching) return false;
+		  $(this).data("moved", false);
+		
+		  isTouching = true;
+		  
+		  return false;
+		});
+		
+		
+		/**
+		 * Fired when the user moves his/her finger.
+		 * If we detect a move, we're not interested in the "tap" anymore
+		 */
+		$('.touch_link').on("touchmove  MSPointerMove", function(){
+		  	$(this).data("moved", true);
+		  	return false;
+		});
+		
+		
+		/**
+		 * Fired when the touch has ended.
+		 * If e.currentTarget.moved is true, then the user moved his/her finger while
+		 * touching this item so we "cancel" the tap.
+		 */
+		$('.touch_link').on("touchend  MSPointerUp", function(){
+		  	isTouching = false;
+		  	
+		  	if(!$(this).data("moved")) {
+				window.open($(this).data("link"), "_self");
+			}
+		  	
+		  	delete $(this).data("moved"); //Don't need our flag anymore
+		  	
+		  	return false;
+		});
+		});
   </script>
 </body>
 </html>
