@@ -183,7 +183,7 @@ p {
     margin-right: 0px;
   }
 }
-@media (max-width: 1900px) {
+/*@media (max-width: 900px) {*/
   h3 {
     display: block;
     margin: 0px auto 1px;
@@ -663,8 +663,8 @@ p {
     margin-top: 1px;
     margin-bottom: 5px;
   }
-}
-@media (max-width: 1900px) {
+/*}*/
+@media (max-width: 1500px) {
   h1 {
     position: static;
     left: 0px;
@@ -724,19 +724,6 @@ p {
     font-size: 18px;
     line-height: 24px;
     text-align: center;
-  }
-  .button {
-    position: static;
-    display: block;
-    margin-top: 30px;
-    margin-right: 50px;
-    margin-left: 50px;
-    border: 2px solid black;
-    border-radius: 8px;
-    background-color: white;
-    color: #2cb8a7;
-    font-size: 16px;
-    font-weight: 700;
   }
   .button.momentum-knap {
     width: 100%;
