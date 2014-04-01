@@ -99,7 +99,7 @@ p {
 .menu-open {
   padding: 2px 10px;
 }
-@media (max-width: 991px) {
+
   h3 {
     display: block;
     margin: 0px auto 1px;
@@ -182,8 +182,7 @@ p {
   .margin20px {
     margin-right: 0px;
   }
-}
-@media (max-width: 1900px) {
+
   h3 {
     display: block;
     margin: 0px auto 1px;
@@ -663,8 +662,7 @@ p {
     margin-top: 1px;
     margin-bottom: 5px;
   }
-}
-@media (max-width: 1900px) {
+
   h1 {
     position: static;
     left: 0px;
@@ -1800,4 +1798,3 @@ p {
     padding-right: 0px;
     padding-left: 0px;
   }
-}
