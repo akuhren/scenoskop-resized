@@ -143,15 +143,13 @@
 
 		var image26 = new Image();
 		image26.src="splash.png";
-
-
 		
-		
-		var isTouching;
 		
 		$(document).ready(function() {
 			navigator.splashscreen.hide();
 		});
+		
+		var isTouching;
 		
 		$('.menuknap').on('morph', function() {
 			$(this).data("link", $(this).attr("href"));
